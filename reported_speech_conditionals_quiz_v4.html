@@ -1,0 +1,2335 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reported Speech & Conditionals - Ôn chuyên Anh 10 v4</title>
+  <style>
+    :root {
+      --green: #0f766e;
+      --green-2: #10b981;
+      --green-dark: #134e4a;
+      --mint: #ccfbf1;
+      --bg: #f6fbfb;
+      --card: #ffffff;
+      --ink: #0f172a;
+      --muted: #526172;
+      --line: #dce7e6;
+      --soft: #f0fdfa;
+      --blue: #2563eb;
+      --blue-soft: #eff6ff;
+      --amber: #f59e0b;
+      --amber-soft: #fffbeb;
+      --red: #dc2626;
+      --red-soft: #fff1f2;
+      --ok: #16a34a;
+      --ok-soft: #ecfdf5;
+      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --shadow-soft: 0 8px 22px rgba(15, 23, 42, 0.06);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    @keyframes pageFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes headerDrop {
+      from { opacity: 0; transform: translateY(-12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes panelIn {
+      from { opacity: 0; transform: translateY(14px) scale(0.99); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes floatBlob {
+      0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(-16px, 18px, 0) scale(1.04); }
+    }
+
+    @keyframes cardPop {
+      from { opacity: 0; transform: translateY(16px) scale(0.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes feedbackIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes resultPop {
+      0% { opacity: 0; transform: translateY(10px) scale(0.97); }
+      70% { transform: translateY(0) scale(1.015); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes correctPulse {
+      0% { transform: scale(1); }
+      45% { transform: scale(1.012); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shakeWrong {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      50% { transform: translateX(4px); }
+      75% { transform: translateX(-2px); }
+    }
+
+    @keyframes barGlow {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.18); }
+    }
+
+    @keyframes confettiFall {
+      0% { transform: translateY(-14vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+
+    body {
+      margin: 0;
+      animation: pageFade 0.55s ease both;
+      background:
+        radial-gradient(circle at top left, rgba(20, 184, 166, 0.18), transparent 34rem),
+        linear-gradient(180deg, #ecfeff 0%, var(--bg) 22rem, #ffffff 100%);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+
+    header {
+      position: relative;
+      animation: headerDrop 0.55s ease both;
+      overflow: hidden;
+      padding: 46px 20px 28px;
+      background: linear-gradient(135deg, #0f766e 0%, #16a34a 62%, #22c55e 100%);
+      color: white;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -90px;
+      top: -120px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.14);
+      animation: floatBlob 6s ease-in-out infinite;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      letter-spacing: -0.04em;
+      line-height: 1.08;
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      color: var(--green-dark);
+      font-size: clamp(1.45rem, 2.3vw, 2rem);
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 20px 0 8px;
+      color: var(--green-dark);
+      font-size: 1.08rem;
+    }
+
+    p { margin: 8px 0; }
+
+    .subtitle {
+      max-width: 860px;
+      color: #e8fff7;
+      font-size: 1.06rem;
+    }
+
+    .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .toc a {
+      text-decoration: none;
+      color: white;
+      border: 1px solid rgba(255,255,255,0.52);
+      background: rgba(255,255,255,0.11);
+      backdrop-filter: blur(8px);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-weight: 750;
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .toc a:hover { transform: translateY(-1px); background: rgba(255,255,255,0.18); }
+
+    main { padding: 26px 0 64px; }
+
+    .panel {
+      background: rgba(255,255,255,0.94);
+      animation: panelIn 0.48s ease both;
+      border: 1px solid rgba(209, 231, 228, 0.95);
+      border-radius: var(--radius);
+      padding: clamp(18px, 3vw, 28px);
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+    }
+
+    .notice {
+      background: linear-gradient(180deg, #fffbeb, #fff7ed);
+      border: 1px solid #fed7aa;
+      border-radius: 18px;
+      padding: 15px 16px;
+      margin: 18px 0;
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      counter-reset: step;
+      margin-top: 16px;
+    }
+
+    .roadmap div {
+      position: relative;
+      background: var(--soft);
+      border: 1px solid #b7f4e8;
+      border-radius: 17px;
+      padding: 14px 14px 14px 48px;
+      min-height: 92px;
+    }
+
+    .roadmap div::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-weight: 900;
+      font-size: 0.86rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+      gap: 14px;
+    }
+
+    .mini-card {
+      background: #fbfefd;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 15px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    code, .formula {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 7px;
+      padding: 1px 6px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.94em;
+      white-space: nowrap;
+    }
+
+    details {
+      border: 1px solid #d7ece8;
+      border-radius: 18px;
+      background: #ffffff;
+      margin: 12px 0;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(15, 23, 42, 0.035);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    details[open] {
+      border-color: #5eead4;
+      box-shadow: 0 10px 24px rgba(15, 118, 110, 0.08);
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 15px 17px;
+      font-weight: 850;
+      color: var(--green-dark);
+      background: linear-gradient(90deg, #f0fdfa, #ffffff);
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: "▸"; display: inline-block; margin-right: 8px; transition: transform 0.2s ease; }
+    details[open] summary::before { transform: rotate(90deg); }
+
+    details > div { padding: 18px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 13px 0;
+      overflow: hidden;
+      border-radius: 14px;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid #e5e7eb;
+      padding: 10px 12px;
+      vertical-align: top;
+    }
+
+    th {
+      background: #ecfeff;
+      color: #134e4a;
+      text-align: left;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--mint);
+      color: var(--green-dark);
+      font-size: 0.76rem;
+      font-weight: 850;
+      margin-left: 5px;
+    }
+
+    .example-set { display: grid; gap: 10px; margin-top: 12px; }
+
+    .example {
+      border-left: 4px solid var(--green);
+      background: #f8fafc;
+      padding: 11px 14px;
+      border-radius: 12px;
+    }
+
+    .careful {
+      border-left: 4px solid var(--amber);
+      background: var(--amber-soft);
+      padding: 11px 14px;
+      border-radius: 12px;
+      margin-top: 12px;
+    }
+
+    .quiz-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin: 14px -8px 20px;
+      padding: 10px 8px;
+      background: rgba(246, 251, 251, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(220, 231, 230, 0.75);
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 16px;
+      cursor: pointer;
+      font-weight: 850;
+      background: var(--green);
+      color: white;
+      box-shadow: 0 8px 18px rgba(15, 118, 110, 0.22);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    button:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(15, 118, 110, 0.28); }
+    button:active { transform: translateY(0); }
+
+    button.secondary { background: #334155; box-shadow: none; }
+    button.ghost { background: white; color: var(--green-dark); border: 1px solid var(--green); box-shadow: none; }
+
+    .progress-wrap {
+      flex: 1 1 210px;
+      min-width: 210px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .progress {
+      height: 10px;
+      flex: 1;
+      border-radius: 999px;
+      overflow: hidden;
+      background: #e2e8f0;
+    }
+
+    .progress > span {
+      display: block;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--green), var(--green-2));
+      transition: width 0.35s cubic-bezier(.2,.8,.2,1);
+      animation: barGlow 1.8s ease-in-out infinite;
+    }
+
+    .question-card {
+      background: var(--card);
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 18px;
+      margin: 14px 0;
+      box-shadow: var(--shadow-soft);
+      animation: cardPop 0.38s cubic-bezier(.2,.75,.25,1) both;
+      transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+    }
+
+    .question-card:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08); }
+    .question-card.correct { border-color: #22c55e; background: var(--ok-soft); animation: correctPulse 0.38s ease both; }
+    .question-card.wrong { border-color: #fb7185; background: var(--red-soft); animation: shakeWrong 0.26s ease both; }
+    .question-card.unanswered { outline: 3px solid var(--amber); background: var(--amber-soft); }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .q-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .q-prompt { font-weight: 800; margin: 8px 0 12px; }
+
+    .q-context {
+      background: var(--blue-soft);
+      border: 1px solid #bfdbfe;
+      border-radius: 13px;
+      padding: 10px 12px;
+      margin: 8px 0;
+    }
+
+    label.option {
+      display: block;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 11px 12px;
+      margin: 9px 0;
+      cursor: pointer;
+      background: #ffffff;
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.15s ease;
+    }
+
+    label.option:hover { border-color: var(--green); background: #f0fdfa; transform: translateX(3px); }
+    label.option:has(input:checked) {
+      border-color: var(--green);
+      background: linear-gradient(90deg, #ecfdf5, #ffffff);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+      transform: translateX(4px);
+    }
+    label.option input { margin-right: 8px; }
+
+    textarea, input[type="text"] {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 14px;
+      padding: 12px 13px;
+      font: inherit;
+      min-height: 46px;
+      background: white;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    textarea:focus, input[type="text"]:focus { border-color: var(--green); box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.14); }
+    textarea { min-height: 86px; resize: vertical; }
+
+    .feedback {
+      margin-top: 12px;
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 12px;
+      display: none;
+    }
+
+    .feedback.show { display: block; animation: feedbackIn 0.28s ease both; }
+    .answer { font-weight: 850; color: var(--green-dark); }
+
+    .result-box {
+      display: none;
+      border-radius: 20px;
+      padding: 18px;
+      border: 1px solid #bfdbfe;
+      background: var(--blue-soft);
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .result-box.show { display: block; animation: resultPop 0.42s cubic-bezier(.2,.8,.2,1) both; }
+    .score { font-size: 1.75rem; font-weight: 950; color: #1d4ed8; }
+    .small { color: var(--muted); font-size: 0.92rem; }
+
+    .footer-note { color: var(--muted); font-size: 0.9rem; margin-top: 20px; }
+
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.45s ease var(--reveal-delay, 0ms), transform 0.45s ease var(--reveal-delay, 0ms);
+    }
+
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .confetti {
+      position: fixed;
+      top: -12px;
+      width: 9px;
+      height: 13px;
+      border-radius: 3px;
+      pointer-events: none;
+      z-index: 9999;
+      animation: confettiFall 1.8s linear forwards;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 720px) {
+      header { padding-top: 34px; }
+      .quiz-toolbar { position: static; margin-left: 0; margin-right: 0; }
+      button { width: 100%; }
+      .progress-wrap { flex-basis: 100%; }
+      table { display: block; overflow-x: auto; }
+    }
+
+    @media print {
+      header, .quiz-toolbar, button { display: none; }
+      body { background: white; }
+      .panel, .question-card { box-shadow: none; }
+      details { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Lời tường thuật & Conditionals</h1>
+      <p class="subtitle">Bản ôn tập đã được sắp lại theo lộ trình rõ hơn: nắm quy tắc nền → học reporting verbs theo cấu trúc → xử lý câu hỏi gián tiếp → xử lý conditionals và wish/if only trong lời tường thuật.</p>
+      <div class="toc">
+        <a href="#overview">Lộ trình</a>
+        <a href="#knowledge">Kiến thức</a>
+        <a href="#traps">Điểm dễ mất điểm</a>
+        <a href="#quiz">Làm bài kiểm tra</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel" id="overview">
+      <h2>1. Cách học phần này cho đúng</h2>
+      <p>Điểm khó của phần này không nằm ở việc “lùi thì” đơn giản. Đề chuyên thường kiểm tra việc em có hiểu <b>ý của câu gốc</b> hay không: đó là lời mời, lời khuyên, lời xin lỗi, lời buộc tội, lời đe dọa, câu hỏi gián tiếp hay câu điều kiện.</p>
+      <div class="roadmap">
+        <div><b>Bước 1</b><br>Nắm quy tắc đổi thì, đại từ, trạng từ thời gian/nơi chốn.</div>
+        <div><b>Bước 2</b><br>Phân loại câu gốc: statement, question, command/request, offer, advice, apology, accusation...</div>
+        <div><b>Bước 3</b><br>Chọn đúng cấu trúc sau reporting verb: <span class="formula">to V</span>, <span class="formula">V-ing</span>, <span class="formula">that-clause</span>.</div>
+        <div><b>Bước 4</b><br>Với conditionals và wish, xét ý nghĩa trước rồi mới quyết định có lùi thì hay giữ nguyên.</div>
+      </div>
+      <div class="notice"><b>Nguyên tắc thực tế:</b> nếu câu gốc có sắc thái rõ như “Don’t forget…”, “I’m sorry…”, “You shouldn’t have…”, “Would you like…”, em nên ưu tiên reporting verb chính xác thay vì chỉ dùng <span class="formula">said that</span>.</div>
+    </section>
+
+    <section class="panel" id="knowledge">
+      <h2>2. Kiến thức theo chủ đề nhỏ</h2>
+
+      <details open>
+        <summary>1. Quy tắc nền: statement trong lời tường thuật</summary>
+        <div>
+          <h3>Khi nào dùng?</h3>
+          <p>Dùng khi câu gốc chỉ kể lại thông tin, không phải câu hỏi, mệnh lệnh, lời khuyên hay lời mời.</p>
+          <h3>Công thức</h3>
+          <p><span class="formula">S + said (that) + S + V lùi thì</span> hoặc <span class="formula">S + told + O + (that) + S + V lùi thì</span>.</p>
+          <table>
+            <tr><th>Câu trực tiếp</th><th>Lời tường thuật thường gặp</th><th>Ví dụ nhanh</th></tr>
+            <tr><td>am/is/are</td><td>was/were</td><td>“I am tired.” → He said he was tired.</td></tr>
+            <tr><td>do/does/V1</td><td>did/V2</td><td>“It works.” → She said it worked.</td></tr>
+            <tr><td>did/V2</td><td>had V3</td><td>“I bought it.” → She said she had bought it.</td></tr>
+            <tr><td>will/can/may</td><td>would/could/might</td><td>“I will call.” → He said he would call.</td></tr>
+            <tr><td>this/these/here/now/today/tomorrow</td><td>that/those/there/then/that day/the next day</td><td>“this book” → that book; “tomorrow” → the following day</td></tr>
+          </table>
+          <div class="example-set">
+            <div class="example"><b>Ví dụ cơ bản:</b> “I am working now,” she said. → She said she was working then.</div>
+            <div class="example"><b>Ví dụ nâng cao:</b> “I bought this phone yesterday,” he said. → He said he had bought that phone the day before.</div>
+            <div class="example"><b>Ví dụ biến tấu chuyên:</b> “The machine has been repaired,” the manager said. → The manager said that the machine had been repaired.</div>
+          </div>
+          <div class="careful"><b>Lỗi cần tránh:</b> <span class="formula">said me</span> là sai. Đúng là <span class="formula">said to me</span> hoặc <span class="formula">told me</span>.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>2. Reporting verbs + O + to V: bảo, yêu cầu, khuyên, mời, nhắc</summary>
+        <div>
+          <h3>Khi nào dùng?</h3>
+          <p>Dùng khi người nói muốn người khác làm hoặc không làm một việc gì.</p>
+          <h3>Công thức</h3>
+          <p><span class="formula">S + ask/tell/order/invite/advise/remind/warn/encourage + O + (not) + to V</span>.</p>
+          <table>
+            <tr><th>Ý nghĩa</th><th>Reporting verb nên dùng</th><th>Câu mẫu</th></tr>
+            <tr><td>yêu cầu nhẹ</td><td>ask/request</td><td>She asked me to open the window.</td></tr>
+            <tr><td>ra lệnh</td><td>order/tell</td><td>The captain ordered his men to leave.</td></tr>
+            <tr><td>khuyên</td><td>advise</td><td>He advised me to put my luggage under the seat.</td></tr>
+            <tr><td>mời</td><td>invite</td><td>He invited me to have dinner.</td></tr>
+            <tr><td>nhắc</td><td>remind</td><td>My mother reminded me to do my homework.</td></tr>
+            <tr><td>cảnh báo không nên làm</td><td>warn + O + not to V / warn + O + against V-ing</td><td>The coach warned the boys not to swim too far.</td></tr>
+          </table>
+          <div class="example-set">
+            <div class="example"><b>Ví dụ cơ bản:</b> “Please close the door,” she said to me. → She asked me to close the door.</div>
+            <div class="example"><b>Ví dụ nâng cao:</b> “Don’t swim out too far, boys,” said the coach. → The coach warned the boys not to swim out too far.</div>
+            <div class="example"><b>Ví dụ biến tấu chuyên:</b> “Why don’t you check the answer again?” the teacher said to Nam. → The teacher advised Nam to check the answer again.</div>
+          </div>
+          <div class="careful"><b>Lỗi cần tránh:</b> Không dùng <span class="formula">remind me doing</span>. Đúng là <span class="formula">remind me to do</span>.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>3. Reporting verbs + to V: hứa, đề nghị, từ chối, đe dọa</summary>
+        <div>
+          <h3>Khi nào dùng?</h3>
+          <p>Dùng khi chủ ngữ của lời tường thuật chính là người thực hiện hành động.</p>
+          <h3>Công thức</h3>
+          <p><span class="formula">S + promise/offer/refuse/agree/threaten/volunteer + to V</span>.</p>
+          <table>
+            <tr><th>Câu gốc</th><th>Nghĩa</th><th>Lời tường thuật</th></tr>
+            <tr><td>“I’ll help you.”</td><td>đề nghị/hứa</td><td>He offered/promised to help me.</td></tr>
+            <tr><td>“I won’t answer.”</td><td>từ chối</td><td>He refused to answer.</td></tr>
+            <tr><td>“I’ll kill you if you call the police.”</td><td>đe dọa</td><td>He threatened to kill me if I called the police.</td></tr>
+          </table>
+          <div class="example-set">
+            <div class="example"><b>Ví dụ cơ bản:</b> “I will pay back the money,” Bill said. → Bill promised to pay back the money.</div>
+            <div class="example"><b>Ví dụ nâng cao:</b> “I won’t have the television repaired unless you pay,” he said. → He refused to have the television repaired unless I paid.</div>
+            <div class="example"><b>Ví dụ biến tấu chuyên:</b> “Shall I carry your suitcase?” Tom said. → Tom offered to carry my suitcase.</div>
+          </div>
+          <div class="careful"><b>Lỗi cần tránh:</b> <span class="formula">offer me to do</span> thường sai nếu nghĩa là “đề nghị tự mình làm”. Đúng: <span class="formula">offer to do</span>.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>4. Reporting verbs + V-ing / prep + V-ing</summary>
+        <div>
+          <h3>Khi nào dùng?</h3>
+          <p>Dùng khi câu gốc thể hiện xin lỗi, thừa nhận, phủ nhận, buộc tội, chỉ trích, chúc mừng, khoe khoang, khăng khăng...</p>
+          <h3>Công thức cần nhớ</h3>
+          <table>
+            <tr><th>Cấu trúc</th><th>Động từ thường gặp</th><th>Ví dụ</th></tr>
+            <tr><td><span class="formula">S + V + V-ing</span></td><td>admit, deny, suggest, mention, propose</td><td>He denied taking the money.</td></tr>
+            <tr><td><span class="formula">S + V + O + prep + V-ing</span></td><td>apologize to sb for, accuse sb of, congratulate sb on, blame sb for, criticize sb for, prevent sb from</td><td>She accused him of copying her answer.</td></tr>
+            <tr><td><span class="formula">S + V + prep + V-ing</span></td><td>insist on, dream of, boast about, look forward to, think of/about</td><td>He insisted on paying for the meal.</td></tr>
+          </table>
+          <div class="example-set">
+            <div class="example"><b>Ví dụ cơ bản:</b> “I broke the vase,” she said. → She admitted breaking the vase.</div>
+            <div class="example"><b>Ví dụ nâng cao:</b> “You copied my answer before the test ended,” Hoa said to Minh. → Hoa accused Minh of having copied her answer before the test ended.</div>
+            <div class="example"><b>Ví dụ biến tấu chuyên:</b> “You shouldn’t have told the truth, Kelly,” Tom said. → Tom criticized Kelly for having told the truth.</div>
+          </div>
+          <div class="careful"><b>Lỗi cần tránh:</b> Sau <span class="formula">deny</span>, <span class="formula">admit</span>, <span class="formula">suggest</span> thường dùng <span class="formula">V-ing</span>, không dùng <span class="formula">to V</span>. Khi hành động xảy ra trước lời nói, <span class="formula">having V3</span> thường chính xác hơn.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>5. Suggest / recommend / insist: nhóm dễ sai cấu trúc</summary>
+        <div>
+          <h3>Khi nào dùng?</h3>
+          <p>Dùng cho lời đề nghị, kiến nghị, khuyến nghị hoặc khăng khăng. Đây là nhóm đề chuyên hay cài bẫy vì học sinh dễ viết sai theo tiếng Việt.</p>
+          <h3>Công thức</h3>
+          <table>
+            <tr><th>Đúng</th><th>Không nên viết</th><th>Ghi chú</th></tr>
+            <tr><td><span class="formula">suggest + V-ing</span></td><td><span class="formula">suggest to V</span></td><td>She suggested going for a walk.</td></tr>
+            <tr><td><span class="formula">suggest that + S + (should) + V</span></td><td><span class="formula">suggest me to V</span></td><td>She suggested that I review the notes.</td></tr>
+            <tr><td><span class="formula">recommend that + S + V</span></td><td><span class="formula">recommend me to V</span> trong nhiều đề phổ thông</td><td>The doctor recommended that I do more exercise.</td></tr>
+            <tr><td><span class="formula">insist on + V-ing</span></td><td><span class="formula">insist to V</span></td><td>He insisted on paying.</td></tr>
+          </table>
+          <div class="example-set">
+            <div class="example"><b>Ví dụ cơ bản:</b> “Shall we go for a walk?” she said. → She suggested going for a walk.</div>
+            <div class="example"><b>Ví dụ nâng cao:</b> “You really should do more exercise,” the doctor said. → The doctor recommended that I do more exercise.</div>
+            <div class="example"><b>Ví dụ biến tấu chuyên:</b> “No, I must pay for the meal,” he said. → He insisted on paying for the meal.</div>
+          </div>
+          <div class="careful"><b>Lỗi cần tránh:</b> Nếu trong đáp án có <span class="formula">suggested me to...</span>, gần như chắc chắn sai trong dạng bài này.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>6. Câu hỏi gián tiếp trong lời tường thuật</summary>
+        <div>
+          <h3>Khi nào dùng?</h3>
+          <p>Dùng khi câu gốc là câu hỏi. Khi chuyển sang lời tường thuật, câu hỏi trở thành mệnh đề khẳng định, nên <b>không đảo trợ động từ</b>.</p>
+          <h3>Công thức</h3>
+          <table>
+            <tr><th>Loại câu hỏi</th><th>Cấu trúc</th><th>Ví dụ</th></tr>
+            <tr><td>Yes/No question</td><td><span class="formula">ask + O + if/whether + S + V</span></td><td>“Are you ready?” → He asked me if I was ready.</td></tr>
+            <tr><td>Wh-question</td><td><span class="formula">ask + O + wh-word + S + V</span></td><td>“Where did you buy it?” → She asked me where I had bought it.</td></tr>
+          </table>
+          <div class="example-set">
+            <div class="example"><b>Ví dụ cơ bản:</b> “Do you like English?” she asked me. → She asked me if I liked English.</div>
+            <div class="example"><b>Ví dụ nâng cao:</b> “How far is it from Ho Chi Minh City to Ha Noi?” the tourist asked. → The tourist asked how far it was from Ho Chi Minh City to Ha Noi.</div>
+            <div class="example"><b>Ví dụ biến tấu chuyên:</b> “Why was this the only TV on sale?” I asked. → I asked why that was the only TV on sale.</div>
+          </div>
+          <div class="careful"><b>Lỗi cần tránh:</b> Sai: <span class="formula">She asked me where did I buy it</span>. Đúng: <span class="formula">She asked me where I had bought it</span>.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>7. That-clause: said, told, explained, admitted, warned</summary>
+        <div>
+          <h3>Khi nào dùng?</h3>
+          <p>Dùng khi muốn giữ nguyên nội dung một mệnh đề dài hoặc khi reporting verb không đi với <span class="formula">to V</span>/<span class="formula">V-ing</span>.</p>
+          <h3>Công thức</h3>
+          <table>
+            <tr><th>Cấu trúc</th><th>Ví dụ</th><th>Lưu ý</th></tr>
+            <tr><td><span class="formula">say/admit/claim/explain/deny + that + clause</span></td><td>He admitted that he had made a mistake.</td><td>Không cần object ngay sau động từ.</td></tr>
+            <tr><td><span class="formula">tell/warn/persuade + O + that + clause</span></td><td>She warned me that the road was dangerous.</td><td>Nhóm này thường cần object.</td></tr>
+            <tr><td><span class="formula">explain to + O + that + clause</span></td><td>He explained to me that I could not get a refund.</td><td>Không viết <span class="formula">explained me that</span>.</td></tr>
+          </table>
+          <div class="example-set">
+            <div class="example"><b>Ví dụ cơ bản:</b> “I have to do it again,” he said. → He admitted that he had to do it again.</div>
+            <div class="example"><b>Ví dụ nâng cao:</b> “The repair will be at your expense,” the manager said. → The manager explained that the repair would be at my expense.</div>
+            <div class="example"><b>Ví dụ biến tấu chuyên:</b> “Investing more money now is risky,” Mr Hung said to everyone. → Mr Hung warned everyone that investing more money then was risky.</div>
+          </div>
+          <div class="careful"><b>Lỗi cần tránh:</b> <span class="formula">tell</span> thường cần object: <span class="formula">told me that...</span>. Nếu không có object, dùng <span class="formula">said that...</span>.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>8. Conditionals trong lời tường thuật</summary>
+        <div>
+          <h3>Khi nào dùng?</h3>
+          <p>Dùng khi câu gốc có mệnh đề <span class="formula">if</span>. Việc giữ nguyên hay lùi thì phụ thuộc vào loại conditional và thời điểm tường thuật.</p>
+          <table>
+            <tr><th>Loại</th><th>Cách xử lý</th><th>Ví dụ</th></tr>
+            <tr><td>Type 0</td><td>Thường giữ nguyên vì là sự thật chung.</td><td>“If you heat ice, it melts.” → He said if you heat ice, it melts.</td></tr>
+            <tr><td>Type 1</td><td>Có thể lùi thành past + would nếu lời nói đã qua/không còn trực tiếp đúng.</td><td>“If I catch the plane, I’ll be home by four.” → She said if she caught the plane, she would be home by four.</td></tr>
+            <tr><td>Type 2</td><td>Thường giữ nguyên vì đã là giả định trái hiện tại.</td><td>“If I were rich, I could buy a car.” → He said if he were rich, he could buy a car.</td></tr>
+            <tr><td>Type 3</td><td>Thường giữ nguyên vì đã nói về quá khứ trái thực tế.</td><td>“If I had known, I would have helped.” → He said if he had known, he would have helped.</td></tr>
+            <tr><td>Mixed conditional</td><td>Giữ logic quá khứ → hiện tại; đổi trạng từ nếu cần.</td><td>“If I had studied harder, I would be at university now.” → He said if he had studied harder, he would be at university then.</td></tr>
+          </table>
+          <div class="example-set">
+            <div class="example"><b>Ví dụ cơ bản:</b> “If it rains, we will stay at home,” they said. → They said if it rained, they would stay at home.</div>
+            <div class="example"><b>Ví dụ nâng cao:</b> “What would you do if you were having a problem with grammar?” Huyen asked Nga. → Huyen asked Nga what she would do if she were having a problem with grammar.</div>
+            <div class="example"><b>Ví dụ biến tấu chuyên:</b> “If I had followed your advice, I wouldn’t be in trouble now,” he said. → He said if he had followed my advice, he wouldn’t be in trouble then.</div>
+          </div>
+          <div class="careful"><b>Lỗi cần tránh:</b> Không tự động biến Type 2 thành Type 3. “If I were you” thường được tường thuật bằng <span class="formula">advised + O + to V</span>, không phải “if he had been me”.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>9. Conditional meaning: lời khuyên, lời đe dọa, lời hứa có if</summary>
+        <div>
+          <h3>Khi nào dùng?</h3>
+          <p>Một câu có <span class="formula">if</span> không phải lúc nào cũng cần giữ nguyên dạng conditional. Nhiều câu nên chuyển theo ý nghĩa giao tiếp.</p>
+          <table>
+            <tr><th>Câu gốc</th><th>Ý nghĩa thật</th><th>Cách chuyển tốt</th></tr>
+            <tr><td>“If I were you, I’d stop smoking.”</td><td>lời khuyên</td><td>She advised him to stop smoking.</td></tr>
+            <tr><td>“If you call the police, I’ll hurt you.”</td><td>lời đe dọa</td><td>He threatened to hurt me if I called the police.</td></tr>
+            <tr><td>“If you lend me the book, I’ll return it tomorrow.”</td><td>lời hứa/điều kiện</td><td>He promised to return the book the next day if I lent it to him.</td></tr>
+          </table>
+          <div class="example-set">
+            <div class="example"><b>Ví dụ cơ bản:</b> “If I were you, I’d revise reported speech first,” she said. → She advised me to revise reported speech first.</div>
+            <div class="example"><b>Ví dụ nâng cao:</b> “If you don’t pay the ransom, we’ll kill your boy,” they said. → They threatened to kill his boy if he refused to pay the ransom.</div>
+            <div class="example"><b>Ví dụ biến tấu chuyên:</b> “I’ll give you a full refund if there is a problem,” the assistant said. → The assistant promised to give me a full refund if there was a problem.</div>
+          </div>
+          <div class="careful"><b>Lỗi cần tránh:</b> Chỉ nhìn thấy <span class="formula">if</span> rồi máy móc đổi thì là chưa đủ. Trước hết phải xác định câu đang khuyên, hứa, đe dọa hay chỉ nêu điều kiện.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>10. Wish / If only trong lời tường thuật</summary>
+        <div>
+          <h3>Khi nào dùng?</h3>
+          <p>Dùng để nói điều ước, sự tiếc nuối hoặc phàn nàn. Đây là phần dễ nhầm vì <span class="formula">wish</span> không phải lúc nào cũng có nghĩa “muốn”.</p>
+          <table>
+            <tr><th>Dạng</th><th>Ý nghĩa</th><th>Ví dụ tường thuật</th></tr>
+            <tr><td><span class="formula">wish + past simple</span></td><td>Ước trái với hiện tại</td><td>“I wish I knew the answer.” → She said she wished she knew the answer.</td></tr>
+            <tr><td><span class="formula">wish + past perfect</span></td><td>Tiếc về quá khứ</td><td>“I wish I had listened.” → She said she wished she had listened.</td></tr>
+            <tr><td><span class="formula">wish + would V</span></td><td>Mong ai/việc gì thay đổi; thường có sắc thái phàn nàn</td><td>“I wish you wouldn’t interrupt me.” → He said he wished I wouldn’t interrupt him.</td></tr>
+            <tr><td><span class="formula">If only...</span></td><td>Nhấn mạnh wish/regret</td><td>“If only I hadn’t wasted time.” → He wished he hadn’t wasted time.</td></tr>
+          </table>
+          <div class="example-set">
+            <div class="example"><b>Ví dụ cơ bản:</b> “I wish I had more time,” Mai said. → Mai said she wished she had more time.</div>
+            <div class="example"><b>Ví dụ nâng cao:</b> “If only I hadn’t ignored the warning,” he said. → He wished he hadn’t ignored the warning.</div>
+            <div class="example"><b>Ví dụ biến tấu chuyên:</b> “I wish you would stop making noise,” the teacher said to us. → The teacher said he/she wished we would stop making noise.</div>
+          </div>
+          <div class="careful"><b>Lỗi cần tránh:</b> <span class="formula">wish + to V</span> = muốn làm gì theo nghĩa trang trọng, không dùng để diễn đạt điều ước trái thực tế như <span class="formula">I wish I knew...</span>.</div>
+        </div>
+      </details>
+    </section>
+
+    <section class="panel" id="traps">
+      <h2>3. Ba điểm dễ mất điểm nhất trong đề chuyên</h2>
+      <p>Phần này chỉ giữ lại 3 lỗi đáng ưu tiên nhất, bám theo các dạng trong tài liệu em gửi: chọn đáp án gần nghĩa nhất, sửa lỗi sai, bracket choice, cloze gap và viết lại câu.</p>
+      <div class="grid traps-three">
+        <div class="mini-card trap-card"><b>1. Chọn sai cấu trúc sau reporting verb</b><br>
+          Đây là lỗi nặng nhất vì đề chuyên hay cho các đáp án rất giống nhau. Cần nhớ cặp cấu trúc: <span class="formula">advise / remind / invite + O + to V</span>, <span class="formula">promise / refuse / offer + to V</span>, <span class="formula">deny / admit / suggest + V-ing</span>, <span class="formula">apologize for / accuse of / congratulate on + V-ing</span>.<br>
+          <span class="small"><b>Ví dụ:</b> Sai: <span class="formula">suggested me to go</span>. Đúng: <span class="formula">suggested going</span> hoặc <span class="formula">suggested that I go</span>.</span>
+        </div>
+        <div class="mini-card trap-card"><b>2. Nhận diện sai ý của câu gốc</b><br>
+          Không được dịch từng chữ. <span class="formula">Would you like to...?</span> thường là lời mời; <span class="formula">Why don’t you...?</span> thường là lời khuyên/đề nghị; <span class="formula">Don’t forget to...</span> là nhắc nhở; <span class="formula">I will kill...</span> là đe dọa, không phải promise thông thường.<br>
+          <span class="small"><b>Ví dụ:</b> “Would you like to come for dinner?” → <span class="formula">He invited me to come for dinner.</span></span>
+        </div>
+        <div class="mini-card trap-card"><b>3. Lùi thì conditional quá máy móc</b><br>
+          Với câu điều kiện trong lời tường thuật: Type 0 thường giữ nguyên vì là sự thật chung; Type 2 thường giữ nguyên; Type 1 có thể giữ nguyên nếu lời nói vẫn còn đúng/gần thời điểm nói, nhưng có thể chuyển thành Type 2 nếu sự việc đã không còn phù hợp với hiện tại.<br>
+          <span class="small"><b>Ví dụ:</b> “If I catch the plane, I’ll be home by four,” she said. → <span class="formula">She said that if she caught the plane, she would be home by four.</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="quiz">
+      <h2>4. Bài kiểm tra tương tác: 30 câu ngẫu nhiên</h2>
+      <p>Mỗi lần mở trang hoặc bấm “Tạo đề mới”, hệ thống lấy 30 câu từ ngân hàng câu hỏi và xáo trộn thứ tự. Ngân hàng hiện đã đưa vào toàn bộ 53 câu nhìn thấy trong tài liệu em gửi, sau đó mới bổ sung thêm một số câu biến tấu theo đúng các chủ đề trong kế hoạch. Phần giải thích chỉ hiện sau khi em bấm chấm điểm.</p>
+
+      <div class="quiz-toolbar">
+        <button id="newTestBtn" type="button">Tạo đề mới</button>
+        <button id="submitBtn" type="button">Chấm điểm</button>
+        <button id="showUnansweredBtn" class="ghost" type="button">Tô câu chưa làm</button>
+        <button class="secondary" onclick="window.print()" type="button">In / lưu PDF</button>
+        <div class="progress-wrap" aria-live="polite">
+          <span id="progressText">0/30</span>
+          <div class="progress"><span id="progressBar"></span></div>
+        </div>
+      </div>
+
+      <div id="resultBox" class="result-box"></div>
+      <div id="quizContainer"></div>
+    </section>
+
+    <p class="footer-note">Sau khi chấm điểm, hãy nhìn bảng nhóm kiến thức để biết em đang yếu ở reporting verbs, câu hỏi gián tiếp, conditionals hay wish/if only.</p>
+  </main>
+
+  <script>
+    const QUESTION_BANK = [
+  {
+    "id": "DOC-I01",
+    "type": "mcq",
+    "topic": "Error correction: pronoun reference",
+    "difficulty": "Basic",
+    "prompt": "Identify the underlined part that needs correction: I'd like (A) to thank (B) your brother (C) for (D) your help.",
+    "instruction": "Choose the underlined part that needs correction.",
+    "options": [
+      "A. like",
+      "B. to thank",
+      "C. for",
+      "D. your"
+    ],
+    "correct": "D. your",
+    "answerDisplay": "D. your → his",
+    "explanation": "“Your brother” means the help belongs to the brother, so it should be “his help”, not “your help”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-I02",
+    "type": "mcq",
+    "topic": "Error correction: tell + O + to V",
+    "difficulty": "Basic",
+    "prompt": "Identify the underlined part that needs correction: Ms. Lisa (A) told to Alice (B) to give (C) her (D) a hand.",
+    "instruction": "Choose the underlined part that needs correction.",
+    "options": [
+      "A. told to Alice",
+      "B. to give",
+      "C. her",
+      "D. a hand"
+    ],
+    "correct": "A. told to Alice",
+    "answerDisplay": "A. told to Alice → told Alice",
+    "explanation": "After “tell”, use a direct object: “told Alice to give…”, not “told to Alice”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-I03",
+    "type": "mcq",
+    "topic": "Error correction: advise + O + to V",
+    "difficulty": "Basic",
+    "prompt": "Identify the underlined part that needs correction: (A) My mother advised (B) me (C) buying (D) that house.",
+    "instruction": "Choose the underlined part that needs correction.",
+    "options": [
+      "A. My mother advised",
+      "B. me",
+      "C. buying",
+      "D. that house"
+    ],
+    "correct": "C. buying",
+    "answerDisplay": "C. buying → to buy",
+    "explanation": "The structure is “advise + O + to V”: advised me to buy that house.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-I04",
+    "type": "mcq",
+    "topic": "Error correction: reported yes/no question",
+    "difficulty": "Basic",
+    "prompt": "Identify the underlined part that needs correction: Linda (A) asked Kelly (B) whether (C) did she like sports (D) or not.",
+    "instruction": "Choose the underlined part that needs correction.",
+    "options": [
+      "A. asked Kelly",
+      "B. whether",
+      "C. did she like sports",
+      "D. or not"
+    ],
+    "correct": "C. did she like sports",
+    "answerDisplay": "C. did she like sports → she liked sports",
+    "explanation": "Reported questions use statement word order: whether she liked sports, not whether did she like sports.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-I05",
+    "type": "mcq",
+    "topic": "Error correction: backshift in reported question",
+    "difficulty": "Basic",
+    "prompt": "Identify the underlined part that needs correction: He asked Mary (A) how many (B) people (C) there are in (D) her family.",
+    "instruction": "Choose the underlined part that needs correction.",
+    "options": [
+      "A. how many",
+      "B. people",
+      "C. there are in",
+      "D. her"
+    ],
+    "correct": "C. there are in",
+    "answerDisplay": "C. there are → there were",
+    "explanation": "With a past reporting verb (“asked”), “there are” normally backshifts to “there were”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-I06",
+    "type": "mcq",
+    "topic": "Error correction: reported wh-question word order",
+    "difficulty": "Basic",
+    "prompt": "Identify the underlined part that needs correction: (A) A tourist asked (B) how far (C) was it from Ho Chi Minh City (D) to Ha Noi.",
+    "instruction": "Choose the underlined part that needs correction.",
+    "options": [
+      "A. A tourist asked",
+      "B. how far",
+      "C. was it",
+      "D. to Ha Noi"
+    ],
+    "correct": "C. was it",
+    "answerDisplay": "C. was it → it was",
+    "explanation": "Reported wh-questions use statement word order: how far it was, not how far was it.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-I07",
+    "type": "mcq",
+    "topic": "Error correction: word order after know if",
+    "difficulty": "Advanced",
+    "prompt": "Identify the underlined part that needs correction: She (A) wanted to know (B) Tom if would (C) have time to play badminton (D) regularly.",
+    "instruction": "Choose the underlined part that needs correction.",
+    "options": [
+      "A. wanted to know",
+      "B. Tom if would",
+      "C. have time",
+      "D. regularly"
+    ],
+    "correct": "B. Tom if would",
+    "answerDisplay": "B. Tom if would → if Tom would",
+    "explanation": "The correct order is “if Tom would have time”. The subject must come before “would”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-I08",
+    "type": "mcq",
+    "topic": "Error correction: time expression in reported speech",
+    "difficulty": "Basic",
+    "prompt": "Identify the underlined part that needs correction: The teacher asked me (A) if I (B) was listening (C) to music (D) now.",
+    "instruction": "Choose the underlined part that needs correction.",
+    "options": [
+      "A. if I",
+      "B. was listening",
+      "C. to music",
+      "D. now"
+    ],
+    "correct": "D. now",
+    "answerDisplay": "D. now → then",
+    "explanation": "In reported speech, “now” usually changes to “then” when the report is later.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-I09",
+    "type": "mcq",
+    "topic": "Error correction: ask + O + not to V",
+    "difficulty": "Basic",
+    "prompt": "Identify the underlined part that needs correction: David (A) asked me (B) did not to (C) stay up late and advised me (D) to go to bed early.",
+    "instruction": "Choose the underlined part that needs correction.",
+    "options": [
+      "A. asked me",
+      "B. did not to",
+      "C. stay up late",
+      "D. to go to bed"
+    ],
+    "correct": "B. did not to",
+    "answerDisplay": "B. did not to → not to",
+    "explanation": "Negative command/reporting form is “asked me not to stay…”, not “did not to stay”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-I10",
+    "type": "mcq",
+    "topic": "Error correction: promise + to V",
+    "difficulty": "Basic",
+    "prompt": "Identify the underlined part that needs correction: He promised (A) coming (B) with her (C) as soon as he (D) was ready.",
+    "instruction": "Choose the underlined part that needs correction.",
+    "options": [
+      "A. coming",
+      "B. with her",
+      "C. as soon as",
+      "D. was ready"
+    ],
+    "correct": "A. coming",
+    "answerDisplay": "A. coming → to come",
+    "explanation": "The structure is “promise + to V”: promised to come.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-II01",
+    "type": "mcq",
+    "topic": "Reporting verbs: invitation",
+    "difficulty": "Basic",
+    "prompt": "“Would you like to go to the cinema with me tonight?” he said to me.",
+    "instruction": "Choose the sentence closest in meaning.",
+    "options": [
+      "He invited me to go to the cinema with him that night.",
+      "He offered me to go to the cinema with him tonight.",
+      "He asked me if I’d like to go to the cinema with him tonight.",
+      "He would like me to go to the cinema with him this night."
+    ],
+    "correct": "He invited me to go to the cinema with him that night.",
+    "answerDisplay": "He invited me to go to the cinema with him that night.",
+    "explanation": "“Would you like to…?” is an invitation. Also, “tonight” changes to “that night”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-II02",
+    "type": "mcq",
+    "topic": "Reporting verbs: advice",
+    "difficulty": "Basic",
+    "prompt": "“If I were you, I’d marry him,” she said to me.",
+    "instruction": "Choose the sentence closest in meaning.",
+    "options": [
+      "She said to me that if I were you, I’d marry him.",
+      "She will marry him if she is me.",
+      "She suggested to marry him if she were me.",
+      "She advised me to marry him."
+    ],
+    "correct": "She advised me to marry him.",
+    "answerDisplay": "She advised me to marry him.",
+    "explanation": "“If I were you…” is commonly reported with “advise + O + to V”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-II03",
+    "type": "mcq",
+    "topic": "Apologize for V-ing",
+    "difficulty": "Basic",
+    "prompt": "“I’m sorry for being late again,” said Lisa.",
+    "instruction": "Choose the sentence closest in meaning.",
+    "options": [
+      "I felt sorry for Lisa’s being late again.",
+      "Lisa was sorry for my being late again.",
+      "Lisa excused for my being late again.",
+      "Lisa apologized for being late again."
+    ],
+    "correct": "Lisa apologized for being late again.",
+    "answerDisplay": "Lisa apologized for being late again.",
+    "explanation": "Use “apologize for + V-ing” when the speaker says sorry for their own action.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-II04",
+    "type": "mcq",
+    "topic": "Compliment + O + on + N/V-ing",
+    "difficulty": "Basic",
+    "prompt": "“How beautiful the dress you have just bought is!” Peter said to Mary.",
+    "instruction": "Choose the sentence closest in meaning.",
+    "options": [
+      "Peter promised to buy Mary a beautiful dress.",
+      "Peter said thanks to Mary for her beautiful dress.",
+      "Peter complimented Mary on her beautiful dress.",
+      "Peter asked Mary how she had just bought her beautiful dress."
+    ],
+    "correct": "Peter complimented Mary on her beautiful dress.",
+    "answerDisplay": "Peter complimented Mary on her beautiful dress.",
+    "explanation": "The exclamation expresses praise: compliment + O + on + N.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-II05",
+    "type": "mcq",
+    "topic": "Criticize + O + for + V-ing",
+    "difficulty": "Advanced",
+    "prompt": "“You shouldn’t have told the truth, Kelly!” said Tom.",
+    "instruction": "Choose the sentence closest in meaning.",
+    "options": [
+      "Tom suspected that Kelly had told the truth.",
+      "Tom criticized Kelly for having told the truth.",
+      "Tom accused Kelly of having told the truth.",
+      "Tom blamed Kelly for having told the truth."
+    ],
+    "correct": "Tom criticized Kelly for having told the truth.",
+    "answerDisplay": "Tom criticized Kelly for having told the truth.",
+    "explanation": "“You shouldn’t have…” shows criticism. “Accuse” suggests blaming someone for wrongdoing, while here the core meaning is criticism.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-II06",
+    "type": "mcq",
+    "topic": "Remind + O + to V",
+    "difficulty": "Basic",
+    "prompt": "“Don’t forget to do your homework,” my mother said.",
+    "instruction": "Choose the sentence closest in meaning.",
+    "options": [
+      "My mother ordered me to do my homework.",
+      "My mother asked me to do my homework.",
+      "My mother reminded me to do my homework.",
+      "My mother simply wanted me to do my homework."
+    ],
+    "correct": "My mother reminded me to do my homework.",
+    "answerDisplay": "My mother reminded me to do my homework.",
+    "explanation": "“Don’t forget to…” means “remind + O + to V”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-II07",
+    "type": "mcq",
+    "topic": "Threaten + to V",
+    "difficulty": "Advanced",
+    "prompt": "“If you don’t pay the ransom, we’ll kill your boy,” the kidnappers told him.",
+    "instruction": "Choose the sentence closest in meaning.",
+    "options": [
+      "The kidnappers ordered to kill his boy if he did not pay the ransom.",
+      "The kidnappers pledged to kill his boy if he did not pay the ransom.",
+      "The kidnappers threatened to kill his boy if he refused to pay the ransom.",
+      "The kidnappers promised to kill his boy if he refused to pay the ransom."
+    ],
+    "correct": "The kidnappers threatened to kill his boy if he refused to pay the ransom.",
+    "answerDisplay": "The kidnappers threatened to kill his boy if he refused to pay the ransom.",
+    "explanation": "A harmful future action used to force someone is a threat: threaten + to V.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-II08",
+    "type": "mcq",
+    "topic": "Promise + to V",
+    "difficulty": "Basic",
+    "prompt": "“I will pay back the money, Kate,” said Bill.",
+    "instruction": "Choose the sentence closest in meaning.",
+    "options": [
+      "Bill apologized to Kate for borrowing her money.",
+      "Bill offered to pay Kate the money back.",
+      "Bill promised to pay back Kate’s money.",
+      "Bill suggested paying back the money to Kate."
+    ],
+    "correct": "Bill promised to pay back Kate’s money.",
+    "answerDisplay": "Bill promised to pay back Kate’s money.",
+    "explanation": "“I will…” here expresses a promise: promise + to V.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-II09",
+    "type": "mcq",
+    "topic": "Order + O + to V",
+    "difficulty": "Basic",
+    "prompt": "The captain said to his men, “Leave there immediately!”",
+    "instruction": "Choose the sentence closest in meaning.",
+    "options": [
+      "The captain suggested his men leave there immediately.",
+      "The captain ordered his men to leave there immediately.",
+      "The captain invited his men to leave there immediately.",
+      "The captain requested his men to leave there immediately."
+    ],
+    "correct": "The captain ordered his men to leave there immediately.",
+    "answerDisplay": "The captain ordered his men to leave there immediately.",
+    "explanation": "A captain giving a direct command is best reported with “order + O + to V”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-II10",
+    "type": "mcq",
+    "topic": "Encourage + O + to V",
+    "difficulty": "Basic",
+    "prompt": "“Go on, Mary! Apply for the job,” the mother said.",
+    "instruction": "Choose the sentence closest in meaning.",
+    "options": [
+      "The mother wanted Mary not to apply for the job.",
+      "The mother invited Mary to apply for the job.",
+      "The mother denied applying for the job.",
+      "The mother encouraged Mary to apply for the job."
+    ],
+    "correct": "The mother encouraged Mary to apply for the job.",
+    "answerDisplay": "The mother encouraged Mary to apply for the job.",
+    "explanation": "“Go on!” shows encouragement: encourage + O + to V.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-III01",
+    "type": "text",
+    "topic": "Transformation: conditional type 1 in reported speech",
+    "difficulty": "Basic",
+    "prompt": "Change into reported speech: “If I catch the plane I’ll be home by four o’clock,” she said.",
+    "instruction": "Rewrite the sentence in reported speech.",
+    "answers": [
+      "She said that if she caught the plane, she would be home by four o'clock.",
+      "She said if she caught the plane, she would be home by four o'clock.",
+      "She said that if she caught the plane, she would be home by four o’clock.",
+      "She said if she caught the plane, she would be home by four o’clock."
+    ],
+    "answerDisplay": "She said that if she caught the plane, she would be home by four o’clock.",
+    "explanation": "Type 1 often backshifts in reported speech when reported later: catch → caught; will → would.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-III02",
+    "type": "text",
+    "topic": "Transformation: conditional type 1 in reported speech",
+    "difficulty": "Basic",
+    "prompt": "Change into reported speech: “You will recover quickly if you follow the doctor’s advice,” my mother said.",
+    "instruction": "Rewrite the sentence in reported speech.",
+    "answers": [
+      "My mother said that I would recover quickly if I followed the doctor's advice.",
+      "My mother said I would recover quickly if I followed the doctor's advice.",
+      "My mother told me that I would recover quickly if I followed the doctor's advice.",
+      "My mother said that I would recover quickly if I followed the doctor’s advice."
+    ],
+    "answerDisplay": "My mother said that I would recover quickly if I followed the doctor’s advice.",
+    "explanation": "The pronoun “you” changes to “I”; will → would; follow → followed.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-III03",
+    "type": "text",
+    "topic": "Transformation: reported conditional question",
+    "difficulty": "Advanced",
+    "prompt": "Change into reported speech: “What would you do if you were having a problem with grammar, Nga?” Huyen asked.",
+    "instruction": "Rewrite the sentence in reported speech.",
+    "answers": [
+      "Huyen asked Nga what she would do if she were having a problem with grammar.",
+      "Huyen asked Nga what she would do if she was having a problem with grammar."
+    ],
+    "answerDisplay": "Huyen asked Nga what she would do if she were having a problem with grammar.",
+    "explanation": "Reported wh-questions use statement word order: what she would do. Type 2 is usually kept.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-III04",
+    "type": "text",
+    "topic": "Transformation: conditional as advice",
+    "difficulty": "Basic",
+    "prompt": "Change into reported speech: “If I were you, I’d stop smoking,” she said to her brother.",
+    "instruction": "Rewrite the sentence in reported speech.",
+    "answers": [
+      "She advised her brother to stop smoking.",
+      "She told her brother that if she were him, she would stop smoking.",
+      "She said to her brother that if she were him, she would stop smoking."
+    ],
+    "answerDisplay": "She advised her brother to stop smoking.",
+    "explanation": "“If I were you…” often functions as advice, so “advised her brother to stop smoking” is the natural transformation.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-III05",
+    "type": "text",
+    "topic": "Transformation: conditional type 0 in reported speech",
+    "difficulty": "Basic",
+    "prompt": "Change into reported speech: “If you heat ice, it melts,” he said.",
+    "instruction": "Rewrite the sentence in reported speech.",
+    "answers": [
+      "He said that if you heat ice, it melts.",
+      "He said if you heat ice, it melts."
+    ],
+    "answerDisplay": "He said that if you heat ice, it melts.",
+    "explanation": "Type 0 expresses a general truth, so it is normally kept unchanged.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-IV01",
+    "type": "mcq",
+    "topic": "Choose correct word: announce/tell",
+    "difficulty": "Basic",
+    "prompt": "They were surprised when we ______ that we’d quit our jobs to start our own company.",
+    "instruction": "Choose the correct answer in brackets.",
+    "options": [
+      "announced",
+      "told"
+    ],
+    "correct": "announced",
+    "answerDisplay": "announced",
+    "explanation": "“Tell” needs an object: told them. Without an object, “announced” is correct.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-IV02",
+    "type": "mcq",
+    "topic": "Choose correct form: admit + V-ing",
+    "difficulty": "Basic",
+    "prompt": "The teenagers admitted ______ the fire, but said it was an accident.",
+    "instruction": "Choose the correct answer in brackets.",
+    "options": [
+      "to start",
+      "starting"
+    ],
+    "correct": "starting",
+    "answerDisplay": "starting",
+    "explanation": "Use “admit + V-ing”: admitted starting the fire.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-IV03",
+    "type": "mcq",
+    "topic": "Choose correct form: promise + to V",
+    "difficulty": "Basic",
+    "prompt": "You always promise ______ on time, but you never do.",
+    "instruction": "Choose the correct answer in brackets.",
+    "options": [
+      "you arrive",
+      "to arrive"
+    ],
+    "correct": "to arrive",
+    "answerDisplay": "to arrive",
+    "explanation": "Use “promise + to V”: promise to arrive.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-IV04",
+    "type": "mcq",
+    "topic": "Choose correct form: advise + O + to V",
+    "difficulty": "Basic",
+    "prompt": "I advised Susan ______ to her parents before making a decision.",
+    "instruction": "Choose the correct answer in brackets.",
+    "options": [
+      "to speak",
+      "speaking"
+    ],
+    "correct": "to speak",
+    "answerDisplay": "to speak",
+    "explanation": "Use “advise + O + to V”: advised Susan to speak.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-IV05",
+    "type": "mcq",
+    "topic": "Choose correct preposition: boast about",
+    "difficulty": "Basic",
+    "prompt": "Mary always boasts ______ all the exams easily.",
+    "instruction": "Choose the correct answer in brackets.",
+    "options": [
+      "about passing",
+      "to pass"
+    ],
+    "correct": "about passing",
+    "answerDisplay": "about passing",
+    "explanation": "Use “boast about + V-ing”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-IV06",
+    "type": "mcq",
+    "topic": "Choose correct phrase: congratulate + O + on + V-ing",
+    "difficulty": "Basic",
+    "prompt": "Mike was one of the first people to congratulate ______ engaged.",
+    "instruction": "Choose the correct answer in brackets.",
+    "options": [
+      "on me getting",
+      "me on getting"
+    ],
+    "correct": "me on getting",
+    "answerDisplay": "me on getting",
+    "explanation": "Use “congratulate + O + on + V-ing”: congratulate me on getting engaged.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-IV07",
+    "type": "mcq",
+    "topic": "Choose correct form: subjunctive after recommend",
+    "difficulty": "Advanced",
+    "prompt": "The doctor has recommended that I ______ more exercise.",
+    "instruction": "Choose the correct answer in brackets.",
+    "options": [
+      "to do",
+      "do"
+    ],
+    "correct": "do",
+    "answerDisplay": "do",
+    "explanation": "After “recommend that”, formal English can use the base verb: that I do more exercise.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-IV08",
+    "type": "mcq",
+    "topic": "Choose correct form: remind + O + to V",
+    "difficulty": "Basic",
+    "prompt": "Will you remind me ______ the gas bill before the end of the month?",
+    "instruction": "Choose the correct answer in brackets.",
+    "options": [
+      "to pay",
+      "paying"
+    ],
+    "correct": "to pay",
+    "answerDisplay": "to pay",
+    "explanation": "Use “remind + O + to V”: remind me to pay.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-V01",
+    "type": "mcq",
+    "topic": "Cloze gap: reported question word order",
+    "difficulty": "Basic",
+    "prompt": "When I asked the shop assistant why ______ the only set on sale, ...",
+    "instruction": "Choose A, B, C or D to complete the complaint letter.",
+    "options": [
+      "was this",
+      "it was",
+      "this is",
+      "it is"
+    ],
+    "correct": "it was",
+    "answerDisplay": "it was",
+    "explanation": "After “asked why”, use statement word order: why it was, not why was it.",
+    "source": "Tài liệu gốc",
+    "context": "Complaint letter: Dear Sir, I am writing to complain about a television set that I bought in your shop last week..."
+  },
+  {
+    "id": "DOC-V02",
+    "type": "mcq",
+    "topic": "Cloze gap: tell + O + that",
+    "difficulty": "Basic",
+    "prompt": "She ______ me that it had been used for demonstrations on the shop floor.",
+    "instruction": "Choose A, B, C or D to complete the complaint letter.",
+    "options": [
+      "said",
+      "says",
+      "told",
+      "told to"
+    ],
+    "correct": "told",
+    "answerDisplay": "told",
+    "explanation": "Use “told me that…”. “Said me” and “told to me” are wrong.",
+    "source": "Tài liệu gốc",
+    "context": "Complaint letter: Dear Sir, I am writing to complain about a television set that I bought in your shop last week..."
+  },
+  {
+    "id": "DOC-V03",
+    "type": "mcq",
+    "topic": "Cloze gap: passive backshift",
+    "difficulty": "Basic",
+    "prompt": "She told me that it ______ used for demonstrations on the shop floor.",
+    "instruction": "Choose A, B, C or D to complete the complaint letter.",
+    "options": [
+      "is",
+      "is being",
+      "has been",
+      "had been"
+    ],
+    "correct": "had been",
+    "answerDisplay": "had been",
+    "explanation": "The original idea is present perfect passive, which backshifts to past perfect passive: had been used.",
+    "source": "Tài liệu gốc",
+    "context": "Complaint letter: Dear Sir, I am writing to complain about a television set that I bought in your shop last week..."
+  },
+  {
+    "id": "DOC-V04",
+    "type": "mcq",
+    "topic": "Cloze gap: reported yes/no question",
+    "difficulty": "Basic",
+    "prompt": "I also asked her ______ it was in good working order.",
+    "instruction": "Choose A, B, C or D to complete the complaint letter.",
+    "options": [
+      "if",
+      "why",
+      "how",
+      "that"
+    ],
+    "correct": "if",
+    "answerDisplay": "if",
+    "explanation": "A yes/no question in reported speech uses if/whether.",
+    "source": "Tài liệu gốc",
+    "context": "Complaint letter: Dear Sir, I am writing to complain about a television set that I bought in your shop last week..."
+  },
+  {
+    "id": "DOC-V05",
+    "type": "mcq",
+    "topic": "Cloze gap: backshift present simple",
+    "difficulty": "Basic",
+    "prompt": "She assured me that it ______ perfectly.",
+    "instruction": "Choose A, B, C or D to complete the complaint letter.",
+    "options": [
+      "works",
+      "is working",
+      "worked",
+      "would be working"
+    ],
+    "correct": "worked",
+    "answerDisplay": "worked",
+    "explanation": "Present simple “works” backshifts to past simple “worked” after a past reporting verb.",
+    "source": "Tài liệu gốc",
+    "context": "Complaint letter: Dear Sir, I am writing to complain about a television set that I bought in your shop last week..."
+  },
+  {
+    "id": "DOC-V06",
+    "type": "mcq",
+    "topic": "Cloze gap: promise + O + that clause",
+    "difficulty": "Basic",
+    "prompt": "She also promised ______ I could return the set within ten days for any reason.",
+    "instruction": "Choose A, B, C or D to complete the complaint letter.",
+    "options": [
+      "me that",
+      "me if",
+      "if",
+      "to me"
+    ],
+    "correct": "me that",
+    "answerDisplay": "me that",
+    "explanation": "Use “promised me that…”.",
+    "source": "Tài liệu gốc",
+    "context": "Complaint letter: Dear Sir, I am writing to complain about a television set that I bought in your shop last week..."
+  },
+  {
+    "id": "DOC-V07",
+    "type": "mcq",
+    "topic": "Cloze gap: ask + O + to V",
+    "difficulty": "Basic",
+    "prompt": "I called the shop and asked someone ______ me through to the manager.",
+    "instruction": "Choose A, B, C or D to complete the complaint letter.",
+    "options": [
+      "put",
+      "to put",
+      "putting",
+      "that I put"
+    ],
+    "correct": "to put",
+    "answerDisplay": "to put",
+    "explanation": "Use “ask + O + to V”: asked someone to put me through.",
+    "source": "Tài liệu gốc",
+    "context": "Complaint letter: Dear Sir, I am writing to complain about a television set that I bought in your shop last week..."
+  },
+  {
+    "id": "DOC-V08",
+    "type": "mcq",
+    "topic": "Cloze gap: explain + that clause",
+    "difficulty": "Basic",
+    "prompt": "The manager explained ______ I could not get a refund as the television was a sale item.",
+    "instruction": "Choose A, B, C or D to complete the complaint letter.",
+    "options": [
+      "me",
+      "me that",
+      "that",
+      "me how"
+    ],
+    "correct": "that",
+    "answerDisplay": "that",
+    "explanation": "Use “explained that…”. Do not use “explained me that” in standard English.",
+    "source": "Tài liệu gốc",
+    "context": "Complaint letter: Dear Sir, I am writing to complain about a television set that I bought in your shop last week..."
+  },
+  {
+    "id": "DOC-V09",
+    "type": "mcq",
+    "topic": "Cloze gap: offer + to V",
+    "difficulty": "Basic",
+    "prompt": "He ______ to have the television repaired but said that the repairs would be at my expense.",
+    "instruction": "Choose A, B, C or D to complete the complaint letter.",
+    "options": [
+      "said",
+      "told",
+      "informed",
+      "offered"
+    ],
+    "correct": "offered",
+    "answerDisplay": "offered",
+    "explanation": "Use “offered to have the television repaired” because the manager proposed doing this.",
+    "source": "Tài liệu gốc",
+    "context": "Complaint letter: Dear Sir, I am writing to complain about a television set that I bought in your shop last week..."
+  },
+  {
+    "id": "DOC-V10",
+    "type": "mcq",
+    "topic": "Cloze gap: future in the past",
+    "difficulty": "Basic",
+    "prompt": "He offered to have the television repaired but said that the repairs ______ at my expense.",
+    "instruction": "Choose A, B, C or D to complete the complaint letter.",
+    "options": [
+      "are",
+      "were",
+      "has been",
+      "would be"
+    ],
+    "correct": "would be",
+    "answerDisplay": "would be",
+    "explanation": "In reported speech, future “will be” normally becomes “would be”.",
+    "source": "Tài liệu gốc",
+    "context": "Complaint letter: Dear Sir, I am writing to complain about a television set that I bought in your shop last week..."
+  },
+  {
+    "id": "DOC-V11",
+    "type": "mcq",
+    "topic": "Cloze gap: deny + V-ing",
+    "difficulty": "Basic",
+    "prompt": "The shop assistant who sold me the television ______ promising me a refund if there was a problem with the TV set.",
+    "instruction": "Choose A, B, C or D to complete the complaint letter.",
+    "options": [
+      "denied",
+      "refused",
+      "informed",
+      "decided"
+    ],
+    "correct": "denied",
+    "answerDisplay": "denied",
+    "explanation": "Use “deny + V-ing”: denied promising me a refund.",
+    "source": "Tài liệu gốc",
+    "context": "Complaint letter: Dear Sir, I am writing to complain about a television set that I bought in your shop last week..."
+  },
+  {
+    "id": "DOC-V12",
+    "type": "mcq",
+    "topic": "Cloze gap: suggest + that clause",
+    "difficulty": "Advanced",
+    "prompt": "The manager suggested ______ Head Office, so I am writing to you.",
+    "instruction": "Choose A, B, C or D to complete the complaint letter.",
+    "options": [
+      "to contact",
+      "me to contact",
+      "that contacting",
+      "that I should contact"
+    ],
+    "correct": "that I should contact",
+    "answerDisplay": "that I should contact",
+    "explanation": "“Suggest” is not followed by “me to V”. Correct: suggested that I should contact Head Office / suggested contacting Head Office.",
+    "source": "Tài liệu gốc",
+    "context": "Complaint letter: Dear Sir, I am writing to complain about a television set that I bought in your shop last week..."
+  },
+  {
+    "id": "DOC-VI01",
+    "type": "text",
+    "topic": "Transformation: apologize for V-ing",
+    "difficulty": "Basic",
+    "prompt": "Rewrite in reported speech using the verb in brackets: “I’m sorry I broke the glass,” said David. (apologize)",
+    "instruction": "Rewrite the sentence.",
+    "answers": [
+      "David apologized for breaking the glass.",
+      "David apologized for having broken the glass."
+    ],
+    "answerDisplay": "David apologized for breaking the glass.",
+    "explanation": "Use “apologize for + V-ing”. “Having broken” emphasizes the earlier completed action.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-VI02",
+    "type": "text",
+    "topic": "Transformation: advise + O + to V",
+    "difficulty": "Basic",
+    "prompt": "Rewrite in reported speech using the verb in brackets: “Why don’t you put your luggage under the seat?” he told me. (advise)",
+    "instruction": "Rewrite the sentence.",
+    "answers": [
+      "He advised me to put my luggage under the seat."
+    ],
+    "answerDisplay": "He advised me to put my luggage under the seat.",
+    "explanation": "“Why don’t you…?” can express advice: advise + O + to V.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-VI03",
+    "type": "text",
+    "topic": "Transformation: suggest + V-ing / that clause",
+    "difficulty": "Basic",
+    "prompt": "Rewrite in reported speech using the verb in brackets: “Shall we go for a walk?” she said. (suggest)",
+    "instruction": "Rewrite the sentence.",
+    "answers": [
+      "She suggested going for a walk.",
+      "She suggested that we should go for a walk.",
+      "She suggested that we go for a walk."
+    ],
+    "answerDisplay": "She suggested going for a walk.",
+    "explanation": "Use “suggest + V-ing” or “suggest that + S + (should) + V”. Do not use “suggested us to go”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-VI04",
+    "type": "text",
+    "topic": "Transformation: told + conditional type 2",
+    "difficulty": "Advanced",
+    "prompt": "Rewrite in reported speech using the verb in brackets: “If I were rich, I would travel round the world,” my father said to me. (told)",
+    "instruction": "Rewrite the sentence.",
+    "answers": [
+      "My father told me that if he were rich, he would travel round the world.",
+      "My father told me if he were rich, he would travel round the world.",
+      "My father told me that if he was rich, he would travel round the world."
+    ],
+    "answerDisplay": "My father told me that if he were rich, he would travel round the world.",
+    "explanation": "Type 2 conditionals usually stay Type 2 in reported speech; change “I” to “he”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-VI05",
+    "type": "text",
+    "topic": "Transformation: remind + O + to V",
+    "difficulty": "Basic",
+    "prompt": "Rewrite in reported speech using the verb in brackets: “Don’t forget to phone me when you get to New York,” said my mom. (remind)",
+    "instruction": "Rewrite the sentence.",
+    "answers": [
+      "My mom reminded me to phone her when I got to New York.",
+      "My mother reminded me to phone her when I got to New York."
+    ],
+    "answerDisplay": "My mom reminded me to phone her when I got to New York.",
+    "explanation": "“Don’t forget to…” means remind + O + to V. Also change “me” to “her” and “you get” to “I got”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-VI06",
+    "type": "text",
+    "topic": "Transformation: admit + V-ing",
+    "difficulty": "Basic",
+    "prompt": "Rewrite in reported speech using the verb in brackets: “I broke your old vase,” she said in tears. (admit)",
+    "instruction": "Rewrite the sentence.",
+    "answers": [
+      "She admitted breaking my old vase.",
+      "She admitted having broken my old vase.",
+      "She admitted that she had broken my old vase."
+    ],
+    "answerDisplay": "She admitted breaking my old vase.",
+    "explanation": "Use “admit + V-ing” or “admit that + clause”. “Your” changes according to context; here it becomes “my”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-VI07",
+    "type": "text",
+    "topic": "Transformation: warn + O + not to V",
+    "difficulty": "Basic",
+    "prompt": "Rewrite in reported speech using the verb in brackets: “Don’t swim out too far, boys,” said the coach. (warn)",
+    "instruction": "Rewrite the sentence.",
+    "answers": [
+      "The coach warned the boys not to swim out too far.",
+      "The coach warned the boys against swimming out too far."
+    ],
+    "answerDisplay": "The coach warned the boys not to swim out too far.",
+    "explanation": "For negative advice/warning, use “warn + O + not to V” or “warn + O + against + V-ing”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "DOC-VI08",
+    "type": "text",
+    "topic": "Transformation: invite + O + to V",
+    "difficulty": "Basic",
+    "prompt": "Rewrite in reported speech using the verb in brackets: “Would you like to come to my house for dinner tonight?” he said. (invite)",
+    "instruction": "Rewrite the sentence.",
+    "answers": [
+      "He invited me to come to his house for dinner that night.",
+      "He invited us to come to his house for dinner that night."
+    ],
+    "answerDisplay": "He invited me to come to his house for dinner that night.",
+    "explanation": "“Would you like to…?” is an invitation. “Tonight” changes to “that night”.",
+    "source": "Tài liệu gốc"
+  },
+  {
+    "id": "MC13",
+    "type": "mcq",
+    "topic": "Reported questions",
+    "difficulty": "Basic",
+    "prompt": "“Where did you buy this book?” she asked me.",
+    "instruction": "Choose the correct reported question.",
+    "options": [
+      "She asked me where did I buy that book.",
+      "She asked me where I had bought that book.",
+      "She asked me where had I bought this book.",
+      "She asked me where I bought this book?"
+    ],
+    "correct": "She asked me where I had bought that book.",
+    "answerDisplay": "She asked me where I had bought that book.",
+    "explanation": "Reported questions use statement word order: wh-word + S + V. Past simple usually backshifts to past perfect; this → that.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "MC14",
+    "type": "mcq",
+    "topic": "Reported yes/no questions",
+    "difficulty": "Basic",
+    "prompt": "“Are you working now?” he asked me.",
+    "instruction": "Choose the correct reported question.",
+    "options": [
+      "He asked me was I working then.",
+      "He asked me if I was working then.",
+      "He asked me if was I working now.",
+      "He asked me that I was working then."
+    ],
+    "correct": "He asked me if I was working then.",
+    "answerDisplay": "He asked me if I was working then.",
+    "explanation": "Yes/no questions become if/whether + S + V. No inversion. “Now” changes to “then”.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "MC28",
+    "type": "mcq",
+    "topic": "Conditionals in reported speech: type 3",
+    "difficulty": "Advanced",
+    "prompt": "“If I had known the truth, I would have helped you,” he said.",
+    "instruction": "Choose the best reported-speech sentence.",
+    "options": [
+      "He said if he knew the truth, he would help me.",
+      "He said if he had known the truth, he would have helped me.",
+      "He said if he had knew the truth, he would have helped me.",
+      "He said if he would have known the truth, he had helped me."
+    ],
+    "correct": "He said if he had known the truth, he would have helped me.",
+    "answerDisplay": "He said if he had known the truth, he would have helped me.",
+    "explanation": "Type 3 normally stays Type 3. Only pronouns change.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "MC29",
+    "type": "mcq",
+    "topic": "Conditionals in reported speech: mixed conditional",
+    "difficulty": "Advanced",
+    "prompt": "“If I had studied harder, I would be at university now,” he said.",
+    "instruction": "Choose the best reported-speech sentence.",
+    "options": [
+      "He said that if he had studied harder, he would be at university then.",
+      "He said that if he studied harder, he would have been at university then.",
+      "He said that if he had studied harder, he would have been at university now.",
+      "He said that if he would have studied harder, he would be at university then."
+    ],
+    "correct": "He said that if he had studied harder, he would be at university then.",
+    "answerDisplay": "He said that if he had studied harder, he would be at university then.",
+    "explanation": "This is a mixed conditional: past condition + present result. The structure stays; “now” usually changes to “then”.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "MC30",
+    "type": "mcq",
+    "topic": "Wish/If only in reported speech",
+    "difficulty": "Basic",
+    "prompt": "“I wish I knew the answer,” she said.",
+    "instruction": "Choose the best reported-speech sentence.",
+    "options": [
+      "She said she wished she knew the answer.",
+      "She said she wished she had known the answer.",
+      "She said she wishes she knew the answer.",
+      "She said she wished to know the answer."
+    ],
+    "correct": "She said she wished she knew the answer.",
+    "answerDisplay": "She said she wished she knew the answer.",
+    "explanation": "Wish + past simple expresses an unreal present wish. It normally remains “wished + past simple” in reported speech.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "MC31",
+    "type": "mcq",
+    "topic": "Wish/If only in reported speech",
+    "difficulty": "Advanced",
+    "prompt": "“If only I hadn’t wasted so much time,” Nam said.",
+    "instruction": "Choose the closest reported meaning.",
+    "options": [
+      "Nam wished he hadn’t wasted so much time.",
+      "Nam wished he didn’t waste so much time.",
+      "Nam wished not to waste so much time.",
+      "Nam said if only he doesn’t waste so much time."
+    ],
+    "correct": "Nam wished he hadn’t wasted so much time.",
+    "answerDisplay": "Nam wished he hadn’t wasted so much time.",
+    "explanation": "If only + past perfect expresses regret about the past. Report it as wished + past perfect.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "ER01",
+    "type": "text",
+    "topic": "Error correction: suggest",
+    "difficulty": "Basic",
+    "prompt": "Correct the error: The teacher suggested me to review the grammar notes.",
+    "instruction": "Write the full corrected sentence.",
+    "answers": [
+      "The teacher suggested that I review the grammar notes.",
+      "The teacher suggested that I should review the grammar notes.",
+      "The teacher suggested reviewing the grammar notes."
+    ],
+    "answerDisplay": "The teacher suggested that I review the grammar notes. / The teacher suggested reviewing the grammar notes.",
+    "explanation": "Suggest is not followed by “me to V”. Use suggest + V-ing or suggest that + S + (should) + V.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "ER04",
+    "type": "text",
+    "topic": "Error correction: apologize",
+    "difficulty": "Basic",
+    "prompt": "Correct the error: Mary apologized me for breaking the glass.",
+    "instruction": "Write the full corrected sentence.",
+    "answers": [
+      "Mary apologized to me for breaking the glass.",
+      "Mary apologised to me for breaking the glass."
+    ],
+    "answerDisplay": "Mary apologized/apologised to me for breaking the glass.",
+    "explanation": "Apologize to + O + for + V-ing.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "ER05",
+    "type": "text",
+    "topic": "Error correction: deny",
+    "difficulty": "Basic",
+    "prompt": "Correct the error: He denied to steal the money.",
+    "instruction": "Write the full corrected sentence.",
+    "answers": [
+      "He denied stealing the money.",
+      "He denied having stolen the money."
+    ],
+    "answerDisplay": "He denied stealing/having stolen the money.",
+    "explanation": "Deny is followed by V-ing. “Having V3” is better if you emphasize that the action happened before the denial.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "ER06",
+    "type": "text",
+    "topic": "Error correction: congratulate",
+    "difficulty": "Basic",
+    "prompt": "Correct the error: She congratulated me for passing the entrance exam.",
+    "instruction": "Write the full corrected sentence.",
+    "answers": [
+      "She congratulated me on passing the entrance exam."
+    ],
+    "answerDisplay": "She congratulated me on passing the entrance exam.",
+    "explanation": "Congratulate + O + on + V-ing/N.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "ER07",
+    "type": "text",
+    "topic": "Error correction: say/tell",
+    "difficulty": "Basic",
+    "prompt": "Correct the error: He told that he was tired.",
+    "instruction": "Write the full corrected sentence.",
+    "answers": [
+      "He said that he was tired.",
+      "He told me that he was tired.",
+      "He said he was tired.",
+      "He told us that he was tired."
+    ],
+    "answerDisplay": "He said that he was tired. / He told me that he was tired.",
+    "explanation": "Tell normally needs an object: told me/us/him that… If there is no object, use said.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "TR09",
+    "type": "text",
+    "topic": "Transformation: conditionals type 1",
+    "difficulty": "Advanced",
+    "prompt": "Rewrite in reported speech: “If it rains tomorrow, we will cancel the picnic,” they said. Report it two days later.",
+    "instruction": "Write the reported sentence.",
+    "answers": [
+      "They said that if it rained the next day, they would cancel the picnic.",
+      "They said if it rained the next day, they would cancel the picnic.",
+      "They said that if it rained the following day, they would cancel the picnic.",
+      "They said if it rained the following day, they would cancel the picnic."
+    ],
+    "answerDisplay": "They said that if it rained the next/following day, they would cancel the picnic.",
+    "explanation": "Because it is reported later, Type 1 usually backshifts: rains → rained; will → would; tomorrow → the next/following day.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "TR10",
+    "type": "text",
+    "topic": "Transformation: wish",
+    "difficulty": "Advanced",
+    "prompt": "Rewrite in reported speech: “I wish I had listened to my teacher,” Lan said.",
+    "instruction": "Write the reported sentence.",
+    "answers": [
+      "Lan said that she wished she had listened to her teacher.",
+      "Lan said she wished she had listened to her teacher."
+    ],
+    "answerDisplay": "Lan said that she wished she had listened to her teacher.",
+    "explanation": "Wish + past perfect expresses regret about the past and stays past perfect in reported speech.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "TR11",
+    "type": "text",
+    "topic": "Transformation: report a question",
+    "difficulty": "Basic",
+    "prompt": "Rewrite in reported speech: “Did you finish the conditional exercises?” the teacher asked me.",
+    "instruction": "Write the reported sentence.",
+    "answers": [
+      "The teacher asked me if I had finished the conditional exercises.",
+      "The teacher asked me whether I had finished the conditional exercises."
+    ],
+    "answerDisplay": "The teacher asked me if/whether I had finished the conditional exercises.",
+    "explanation": "Yes/no question → if/whether + S + V. Past simple usually backshifts to past perfect.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "TR12",
+    "type": "text",
+    "topic": "Transformation: accuse",
+    "difficulty": "Advanced",
+    "prompt": "Rewrite using the word in brackets: “You copied my answer, Minh,” Hoa said. (accuse)",
+    "instruction": "Write the reported sentence.",
+    "answers": [
+      "Hoa accused Minh of copying her answer.",
+      "Hoa accused Minh of having copied her answer."
+    ],
+    "answerDisplay": "Hoa accused Minh of copying/having copied her answer.",
+    "explanation": "Accuse + O + of + V-ing. Having V3 is suitable for an earlier completed action.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "FI01",
+    "type": "text",
+    "topic": "Fill-in: reporting verb pattern",
+    "difficulty": "Basic",
+    "prompt": "Fill in the blank with ONE word: He refused ______ answer any more questions.",
+    "instruction": "Type one word.",
+    "answers": [
+      "to"
+    ],
+    "answerDisplay": "to",
+    "explanation": "Refuse + to V: refused to answer.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "FI02",
+    "type": "text",
+    "topic": "Fill-in: reporting verb pattern",
+    "difficulty": "Basic",
+    "prompt": "Fill in the blank with ONE word: She insisted ______ paying for the meal.",
+    "instruction": "Type one word.",
+    "answers": [
+      "on"
+    ],
+    "answerDisplay": "on",
+    "explanation": "Insist on + V-ing.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "FI03",
+    "type": "text",
+    "topic": "Fill-in: reported question",
+    "difficulty": "Basic",
+    "prompt": "Fill in the blank with ONE word: He asked me ______ I had seen his notebook.",
+    "instruction": "Type one word.",
+    "answers": [
+      "if",
+      "whether"
+    ],
+    "answerDisplay": "if / whether",
+    "explanation": "A yes/no question in reported speech uses if/whether.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "FI04",
+    "type": "text",
+    "topic": "Fill-in: conditional reporting",
+    "difficulty": "Advanced",
+    "prompt": "Fill in the blank with ONE word: She said that if she ______ enough money, she would buy a new laptop.",
+    "instruction": "Type one word.",
+    "answers": [
+      "had"
+    ],
+    "answerDisplay": "had",
+    "explanation": "This is Type 2 conditional: if + past simple, would + V.",
+    "source": "Câu biến tấu bổ sung"
+  },
+  {
+    "id": "FI05",
+    "type": "text",
+    "topic": "Fill-in: wish",
+    "difficulty": "Advanced",
+    "prompt": "Fill in the blank with ONE word: Nam said he wished he ______ studied harder before the exam.",
+    "instruction": "Type one word.",
+    "answers": [
+      "had"
+    ],
+    "answerDisplay": "had",
+    "explanation": "Wish about the past uses past perfect: wished he had studied.",
+    "source": "Câu biến tấu bổ sung"
+  }
+];
+
+    let selectedQuestions = [];
+
+    function shuffle(array) {
+      const arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function escapeHtml(str) {
+      return String(str ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function normalize(str) {
+      return String(str ?? "")
+        .toLowerCase()
+        .replace(/[’‘]/g, "'")
+        .replace(/[“”]/g, '"')
+        .replace(/i'd/g, "i would")
+        .replace(/he'd/g, "he would")
+        .replace(/she'd/g, "she would")
+        .replace(/we'd/g, "we would")
+        .replace(/they'd/g, "they would")
+        .replace(/i'll/g, "i will")
+        .replace(/he'll/g, "he will")
+        .replace(/she'll/g, "she will")
+        .replace(/we'll/g, "we will")
+        .replace(/they'll/g, "they will")
+        .replace(/i'm/g, "i am")
+        .replace(/wouldn't/g, "would not")
+        .replace(/didn't/g, "did not")
+        .replace(/don't/g, "do not")
+        .replace(/can't/g, "cannot")
+        .replace(/[?.!,;:"“”]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function mainTopic(topic) {
+      const t = topic.toLowerCase();
+      if (t.includes("conditional")) return "Conditionals in reported speech";
+      if (t.includes("wish")) return "Wish / If only";
+      if (t.includes("question")) return "Reported questions";
+      if (t.includes("cloze")) return "Cloze gap";
+      if (t.includes("error")) return "Error correction";
+      if (t.includes("transformation")) return "Sentence transformation";
+      if (t.includes("fill-in")) return "Fill-in-the-blank";
+      return "Reported speech patterns";
+    }
+
+    function newTest(options = { scroll: true }) {
+      const pool = shuffle(QUESTION_BANK);
+      selectedQuestions = pool.slice(0, 30).map((q, idx) => {
+        const copy = JSON.parse(JSON.stringify(q));
+        copy.number = idx + 1;
+        if (copy.type === "mcq") {
+          copy.renderedOptions = shuffle(copy.options);
+        }
+        return copy;
+      });
+      renderQuiz();
+      updateProgress();
+      document.getElementById("resultBox").classList.remove("show");
+      document.getElementById("resultBox").innerHTML = "";
+      if (options.scroll) {
+        window.scrollTo({ top: document.getElementById("quiz").offsetTop - 10, behavior: "smooth" });
+      }
+    }
+
+    function renderQuiz() {
+      const container = document.getElementById("quizContainer");
+      container.innerHTML = selectedQuestions.map((q, idx) => {
+        const context = q.context ? `<div class="q-context">${escapeHtml(q.context)}</div>` : "";
+        const options = q.type === "mcq"
+          ? q.renderedOptions.map((opt, optIdx) => `
+              <label class="option">
+                <input type="radio" name="q_${idx}" value="${escapeHtml(opt)}"> 
+                <b>${String.fromCharCode(65 + optIdx)}.</b> ${escapeHtml(opt)}
+              </label>
+            `).join("")
+          : `<textarea name="q_${idx}" placeholder="Nhập đáp án của em tại đây..."></textarea>`;
+        return `
+          <article class="question-card" id="card_${idx}" style="animation-delay:${Math.min(idx * 12, 180)}ms">
+            <div class="q-head clean">
+              <span><b>Câu ${idx + 1}</b></span>
+            </div>
+            ${context}
+            <div class="q-prompt">${escapeHtml(q.prompt)}</div>
+            <div class="answer-area">${options}</div>
+            <div class="feedback" id="fb_${idx}"></div>
+          </article>
+        `;
+      }).join("");
+
+      container.querySelectorAll('input[type="radio"], textarea').forEach(el => {
+        el.addEventListener("input", updateProgress);
+        el.addEventListener("change", updateProgress);
+      });
+    }
+
+    function getAnswer(idx, q) {
+      if (q.type === "mcq") {
+        const checked = document.querySelector(`input[name="q_${idx}"]:checked`);
+        return checked ? checked.value : "";
+      }
+      const field = document.querySelector(`textarea[name="q_${idx}"], input[name="q_${idx}"]`);
+      return field ? field.value : "";
+    }
+
+    function answeredCount() {
+      return selectedQuestions.reduce((count, q, idx) => count + (getAnswer(idx, q).trim() ? 1 : 0), 0);
+    }
+
+    function updateProgress() {
+      const total = selectedQuestions.length || 30;
+      const done = answeredCount();
+      const pct = Math.round(done / total * 100);
+      const progressText = document.getElementById("progressText");
+      const progressBar = document.getElementById("progressBar");
+      if (progressText) progressText.textContent = `${done}/${total}`;
+      if (progressBar) progressBar.style.width = `${pct}%`;
+    }
+
+
+    function celebrate(scorePercent) {
+      if (scorePercent < 80 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const colors = ["#0f766e", "#10b981", "#22c55e", "#2563eb", "#f59e0b"];
+      for (let i = 0; i < 34; i++) {
+        const piece = document.createElement("span");
+        piece.className = "confetti";
+        piece.style.left = `${Math.random() * 100}vw`;
+        piece.style.background = colors[i % colors.length];
+        piece.style.animationDelay = `${Math.random() * 0.45}s`;
+        piece.style.transform = `rotate(${Math.random() * 180}deg)`;
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 2400);
+      }
+    }
+
+    function isCorrect(q, answer) {
+      if (q.type === "mcq") return answer === q.correct;
+      const normalized = normalize(answer);
+      if (!normalized) return false;
+      if ((q.answers || []).some(a => normalize(a) === normalized)) return true;
+      if ((q.answerPatterns || []).some(p => new RegExp(p, "i").test(normalized))) return true;
+      return false;
+    }
+
+    function gradeQuiz() {
+      let correct = 0;
+      const topicStats = {};
+      selectedQuestions.forEach((q, idx) => {
+        const answer = getAnswer(idx, q);
+        const ok = isCorrect(q, answer);
+        if (ok) correct++;
+        const group = mainTopic(q.topic);
+        topicStats[group] = topicStats[group] || { correct: 0, total: 0 };
+        topicStats[group].total++;
+        if (ok) topicStats[group].correct++;
+
+        const card = document.getElementById(`card_${idx}`);
+        const fb = document.getElementById(`fb_${idx}`);
+        card.classList.remove("correct", "wrong", "unanswered");
+        card.classList.add(ok ? "correct" : "wrong");
+        fb.classList.add("show");
+        fb.innerHTML = `
+          <p><b>${ok ? "Đúng" : "Chưa đúng"}.</b> Đáp án của em: <span class="small">${escapeHtml(answer || "(chưa trả lời)")}</span></p>
+          <p>Đáp án đúng: <span class="answer">${escapeHtml(q.answerDisplay || q.correct || "")}</span></p>
+          <p><b>Nhóm kiến thức:</b> ${escapeHtml(q.topic || "")}</p>
+          <p><b>Giải thích:</b> ${escapeHtml(q.explanation || "")}</p>
+        `;
+      });
+
+      const total = selectedQuestions.length;
+      const pct = Math.round(correct / total * 100);
+      celebrate(pct);
+      let comment = "";
+      if (pct >= 85) comment = "Tốt. Em đã nắm khá chắc cấu trúc. Bước tiếp theo là luyện câu biến đổi nâng cao và cloze gap dài hơn.";
+      else if (pct >= 70) comment = "Ổn nhưng chưa an toàn cho đề chuyên. Hãy xem kỹ các câu sai, nhất là reporting verb và conditional.";
+      else if (pct >= 50) comment = "Mức nền còn lỗ hổng. Nên học lại bảng cấu trúc rồi làm lại đề mới.";
+      else comment = "Chưa đạt. Đừng luyện đề khó vội; hãy học lại từng nhóm cấu trúc và làm câu cơ bản trước.";
+
+      const rows = Object.entries(topicStats)
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .map(([topic, s]) => `<tr><td>${escapeHtml(topic)}</td><td>${s.correct}/${s.total}</td><td>${Math.round(s.correct / s.total * 100)}%</td></tr>`)
+        .join("");
+
+      const resultBox = document.getElementById("resultBox");
+      resultBox.classList.add("show");
+      resultBox.innerHTML = `
+        <div class="score">Điểm: ${correct}/${total} (${pct}%)</div>
+        <p>${escapeHtml(comment)}</p>
+        <table class="topic-table">
+          <tr><th>Nhóm kiến thức</th><th>Kết quả</th><th>Tỷ lệ</th></tr>
+          ${rows}
+        </table>
+      `;
+      updateProgress();
+      resultBox.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    function highlightUnanswered() {
+      selectedQuestions.forEach((q, idx) => {
+        const ans = getAnswer(idx, q);
+        const card = document.getElementById(`card_${idx}`);
+        if (!ans.trim()) {
+          card.classList.add("unanswered");
+        } else {
+          card.classList.remove("unanswered");
+        }
+      });
+    }
+
+
+    function bootAnimations() {
+      const items = document.querySelectorAll(".panel, details, .mini-card, .roadmap div");
+      items.forEach((el, idx) => {
+        el.classList.add("reveal");
+        el.style.setProperty("--reveal-delay", `${Math.min(idx * 25, 220)}ms`);
+      });
+
+      if (!("IntersectionObserver" in window)) {
+        items.forEach(el => el.classList.add("in-view"));
+        return;
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      items.forEach(el => observer.observe(el));
+    }
+
+    document.getElementById("newTestBtn").addEventListener("click", () => newTest({ scroll: true }));
+    document.getElementById("submitBtn").addEventListener("click", gradeQuiz);
+    document.getElementById("showUnansweredBtn").addEventListener("click", highlightUnanswered);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      bootAnimations();
+      newTest({ scroll: false });
+    });
+  </script>
+</body>
+</html>
